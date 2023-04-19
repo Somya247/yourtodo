@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YO TO DO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+
+  </head>
+  <body>
+
+    <!-- navbar -->
+    <!-- <div class="nav"> -->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">YO TO DO</a>
+          <!-- / daalne se page waha click karne pe apne aap reload ho jayega -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+
+            <form class="d-flex" role="search" method="POST" action="{{ url_for('search') }}">
+                  <input type="text" name="keyword" class="form-control"  aria-label="Search" placeholder="Search... ">
+                <button class="btn btn-outline-light btn-sm mx-1" type="submit">Search</button>
+                  
+              
+          </form>
+          
+            
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    
+        <!-- search -->
+        {% if todo_list %}
+  <h2>Search Results</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Date & Time</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for todo in todo_list %}
+        <tr>
+          <th scope="row">{{ todo.sno }}</th>
+          <td>{{ todo.title }}</td>
+          <td>{{ todo.desc }}</td>
+          <td>{{ todo.date_created.strftime('%m/%d/%Y %H:%M:%S') }}</td>
+
+          <td>
+            <a href="/update/{{todo.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Update</button>
+            <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</button>
+          </td>
+
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No results found.</p>
+{% endif %}
+
+     
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  </body>
+</html>
