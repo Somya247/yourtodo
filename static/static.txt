@@ -1,0 +1,78 @@
+hahahahhahhah
+
+make an environment first
+
+python -m venv env (give desired name in env)
+
+then activate it
+
+.\env\Scripts\activate
+
+
+if this error occurs
+running scripts is disabled in this system when activating virtual environment
+
+then
+
+Open the command prompt or PowerShell as an administrator.
+Run the following command to set the execution policy to RemoteSigned:
+Set-ExecutionPolicy RemoteSigned
+When prompted, confirm the change by entering Y.
+Activate your virtual environment again and try running your script.
+
+then
+pip install flask
+
+pip install flask-sqlalchemy
+
+
+
+#don't name files in caps other than the main folder
+
+render_template renders the html page and is used with return
+
+database banane k liye flask me ek class banana karna hoga aur usme fields, data type specify krna padega then we will execute this command
+
+from app import app, db
+with app.app_context():
+    db.create_all()
+
+
+run the app.py file before creating db
+
+    indentation ka khayal rakhna 
+
+ and db ban jayega
+
+then go to sql lite viewer and drag and drop the db created to view it
+
+then install jinja2 snippet kit for jinja templating from extension
+
+pura ban jaane ka baad 
+pip install gunicorn
+ then 
+ pip freeze > requirements.txt 
+ isse hamara saara files ka requirements aa jayega for whoever wants to install 
+
+ then make a Procfile for heroku in order to deploy the application
+
+ humlog js aur css file/folder add kar skate hai in static folder aur apna css ar js likh sakte hai
+
+ agar heroku likhne se in powershell wo work na kre to go to the file location of heroku then go to bin then copy the file path go to env in search bar of pc then edit your env variables and add the path
+
+C:\Program Files\heroku\bin
+
+ then restart the application matlab vs code ko restart karna and PowerShell me heroku likhna 
+
+ phir heroku login likhna in powershell aur login karne k baad powershell me email dikhayega jisse login hua hai
+
+ lage haath git bhi install kar le
+ isme bhi path wala kaam karna hoga like we did for heroku 
+
+C:\Program Files\Git\bin
+
+git init
+git add
+git coomit -m "Initial commit"
+heroku create todo-somya (or whatever name you want)
+
